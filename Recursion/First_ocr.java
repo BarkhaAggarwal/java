@@ -1,16 +1,19 @@
 package Recursion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class First_ocr {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a[]= {10, 20,20,30,20,10,30,40};
+		int a[]= {30, 20,20,30,20,10,30,40};
 		int n = a.length-1;
 	 System.out.println(first_oc(a,30,0));
 	 System.out.println("***************");
 	 System.out.println(last_oc(a,30,n));
 	 System.out.println("***************");
-	 System.out.println(all_oc(a,30,0));
+	//System.out.println(Arrays.toString(all_oc(a,0,30, 3));
 	 
 	}
 
@@ -47,20 +50,26 @@ public static int last_oc(int a[] ,int f , int i) {
 	}
 
 
-public static int[] all_oc(int a[] ,int f , int i) {
+public static int[] all_oc(int a[] ,int i , int ali , int cnt) {
 	
 	if(i==a.length) {
-		int a1 []= new int [0];
-		return a1;
-		}
+		return new int[cnt];
+	}
 	
-	 int s []= all_oc(a , f , i+1);
-	 
-	 if(a[i]==f) {
-		 int a2 []= new int [s.length+1]; 
-	 }
 	
-	return s;
+	if(a[i]==ali) {
+		
+	int [] sp = all_oc(a,i+1,ali,cnt+1);
+	sp[cnt] = i;
+}
+	else {
+		int [] sp = all_oc(a,i+1,ali,cnt);
+	}
+	return a;
+
+
+
+
 }
 
 
