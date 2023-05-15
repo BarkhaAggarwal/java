@@ -8,21 +8,31 @@ public class anagram {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		String s1 = sc.nextLine();
-		String s2 = sc.nextLine();
-		int n = s1.length();
-		int m = s2.length();		
+		anagrampalindrome(s1);	
 
 	}
 	
-	public static void anagram(String s1 , int n  , String s2, int m) {
+	public static void anagrampalindrome(String str ) {
+		 int[] frequency = new int[256]; // assuming ASCII characters
+	        int oddCount = 0;
 		
-		if(n != m ) {
-			System.out.println("false");
-			return;
-		}
-		else {
-			
-		}
+	        for (int i = 0; i < str.length(); i++) {
+	            frequency[str.charAt(i)]++;
+	        }
+	        
+	        for (int i = 0; i < frequency.length; i++) {
+	            if (frequency[i] % 2 != 0) {
+	                oddCount++;
+	            }
+	        }
+	        
+	        if (str.length() % 2 == 0 && oddCount == 0) {
+	           System.out.println("Yes");
+	        } else if (str.length() % 2 != 0 && oddCount == 1) {
+	        	  System.out.println("Yes");
+	        } else {
+	        	  System.out.println("No");
+	        }
 	}
 	
 

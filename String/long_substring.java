@@ -9,34 +9,35 @@ public class long_substring {
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
 		
-		
-		for(int i=0;i<t;i++) {
-			sc.nextLine();
-			String s = sc.nextLine();
-			
-			int k = sc.nextInt();
-			long_string(s,k);
-		}
+		allPalinSS2("nitootib");
+		System.out.println(ans);
 		
 	}
+	
+	static String ans = "";
+	public static void allPalinSS2(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			panini(str, i, i); // odd , i+2 char
+			panini(str, i, i + 1);// even
 
-	public static void long_string(String s, int k) {
-		int c=1;
-		for(int i=0;i<s.length()-1;i++) {
-			if(s.charAt(i)!=s.charAt(i+1)) {
-				c++;
+		}
+	}
+
+	public static void panini(String str, int L, int R) {
+		
+		while (L >= 0 && R < str.length()) {
+			if (str.charAt(L) == str.charAt(R)) {
+				String temp = str.substring(L, R + 1);
+				if(ans.length()<temp.length()) {
+					ans = temp;
+				}
+				L--;
+				R++;
+			} else {
+				return ;
 			}
 		}
-		
-		if(c==k) {
-			int len = s.length();
-			System.out.println(len);
-		}else {
-			System.out.println("-1");
-		}
-		
-		
-		
+		return ;
 	}
 	
 	
