@@ -8,11 +8,11 @@ public class pat_triangle {
 		// TODO Auto-generated method stub
 		Scanner scn=new Scanner(System.in);
 		int n=scn.nextInt();
-		int row = 0 ;
+		int row = 1 ;
 		int totsp = n -1;
-		int totp = 1;
+		
 		int p =1;
-		while(row<n) {
+		while(row<=n) {
 			//space
 			
 			int cnt = 0;
@@ -21,33 +21,26 @@ public class pat_triangle {
 				cnt++;
 				
 			}
-			//no pat
+			
+			for (int j = row; j < 2 * row ; j++) {
+                System.out.print(j + " ");
+            }
+			
+//			 for (int j = 2 * row - 2; j >= row; j--) {
+//	                System.out.print(j + " ");
+//	            }
+			 int cnt2 =2*row-2;
+			 while(cnt2>=row) {
+				 System.out.println(cnt2+" ");
+				 cnt2--;
+			 }
 			
 			
-			int cntp =0;
-			while(cntp<totp) {
-				System.out.print(p+" ");
-				
-				
-				cntp++;
-				if(row!=0) {
-					if(cntp<=totp/2) {
-						p++;
-					}else {
-						p--;
-					}
-				}
-				
-					
-				
-			}
-			
-			
-			totp = totp +2;
 			totsp--;
 			
+			
+			
 			row++;
-			p++;
 			
 			System.out.println();
 		}
